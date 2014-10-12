@@ -23,7 +23,15 @@ ENGINE.Player = function(args) {
     maxCooldown: 0.3,
 
     hp: 10,
-    maxHp: 10
+    maxHp: 10,
+
+    /* score */
+
+    score: {
+        value: 0,
+        x: 500,
+        y: 40
+    }
 
   }, args);
 
@@ -87,6 +95,8 @@ ENGINE.Player.prototype = {
   },
 
   shoot: function() {
+
+    app.playSound("shoot");
 
     this.collection.add(ENGINE.Bullet, {
       x: this.x,

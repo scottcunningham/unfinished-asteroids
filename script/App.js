@@ -1,16 +1,21 @@
 var app = playground({
 
-  width: 320,
-  height: 240,
+  width: 640,
+  height: 480,
 
-  scaleToFit: false,
+  scaleToFit: true,
 
-  smoothing: true,
+  smoothing: false,
 
   create: function() {
 
     this.loadImages("spritesheet");
-    
+
+    this.loadSounds("asteroid-crush");
+    this.loadSounds("asteroid-hit");
+    this.loadSounds("coin");
+    this.loadSounds("shoot");
+
   },
 
   ready: function() {

@@ -1,13 +1,18 @@
 ENGINE.Bullet = function(args) {
 
   Utils.extend(this, {
-
     direction: 0,
     speed: 300,
     lifespan: 2
   }, args);
 
   this.radius = 3;
+
+  this.sprite = [20, 53, 6, 6];
+
+  this.width = this.sprite[2];
+  this.height = this.sprite[3];
+  this.radius = Math.min(this.width, this.height) / 2 | 0;
 
 };
 
@@ -49,9 +54,9 @@ ENGINE.Bullet.prototype = {
   },
 
   render: function() {
-
-    app.layer.fillStyle("#fff").fillRect(this.x - 4, this.y - 4, 8, 8);
-
+    app.layer.drawImage(app.images.spritesheet, this.sprite[0],
+                        this.sprite[1], this.sprite[2], this.sprite[3],
+                        this.x, this.y, 10, 10);
   }
 
 };
